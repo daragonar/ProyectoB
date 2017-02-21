@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package ejemplo.configuracion;
+=======
+package ejemplo.config;
+>>>>>>> 89adaa286c8672b5b9c04ba1eb960eb48ef93b6c
 
 import java.beans.PropertyVetoException;
 import java.util.Properties;
