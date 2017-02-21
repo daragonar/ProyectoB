@@ -31,7 +31,7 @@ public class CurriculumControlador {
 	private CurriculumPropertyEditor curriculumPropertyEditor;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String añadirCurriculum(Model model, @Valid @ModelAttribute Curriculum curriculum, BindingResult bindingResult) {
+	public String anadirCurriculum(Model model, @Valid @ModelAttribute Curriculum curriculum, BindingResult bindingResult) {
 		repoCurr.save(curriculum);
 		model.addAttribute("curriculum", repoCurr.findAll());
 		return "pages/curriculumListado";
