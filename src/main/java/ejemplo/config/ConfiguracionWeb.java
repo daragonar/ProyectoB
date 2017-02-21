@@ -30,6 +30,8 @@ public class ConfiguracionWeb extends WebMvcConfigurerAdapter {
 		viewResolver.setViewClass(JstlView.class);
 		registry.viewResolver(viewResolver);
 	}
+	
+	
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -38,6 +40,8 @@ public class ConfiguracionWeb extends WebMvcConfigurerAdapter {
 
 		registry.addInterceptor(localeInterceptor);
 	}
+	
+	
 
 	@Bean
 	public LocaleResolver localeResolver() {
