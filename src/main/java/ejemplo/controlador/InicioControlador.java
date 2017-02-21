@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package ejemplo.controlador;
-=======
-package ejemplo.controller;
->>>>>>> 89adaa286c8672b5b9c04ba1eb960eb48ef93b6c
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
