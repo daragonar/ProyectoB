@@ -14,7 +14,8 @@ public class Aplicacion implements WebApplicationInitializer{
 
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
-		webApplicationContext.setConfigLocation("ejemplo.config");
+		webApplicationContext.setConfigLocation("ejemplo.configuracion");
+
 		
 		Dynamic appServlet = servletContext.addServlet("appServlet", new DispatcherServlet(webApplicationContext));
 		appServlet.setLoadOnStartup(1);

@@ -1,4 +1,5 @@
-package ejemplo.config;
+
+package ejemplo.configuracion;
 
 import java.util.Locale;
 
