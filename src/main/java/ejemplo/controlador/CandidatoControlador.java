@@ -15,22 +15,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ejemplo.modelo.entidad.Candidato;
+import ejemplo.modelo.propertyEditor.RolPropertyEditor;
 import ejemplo.modelo.repositorio.RepositorioCandidato;
 
 @Controller
 @RequestMapping("/candidato")
 public class CandidatoControlador {
+	
 	@Autowired
 	private RepositorioCandidato repoCandidato;
 
 	@Autowired
-	private RolePropertyEditor roleProperty;
-
+	private RolPropertyEditor roleProperty;
 
 	@RequestMapping(method = RequestMethod.POST, value = "/login")
 	public String loginInicio(Model model, @Valid @ModelAttribute Candidato per, BindingResult bindingResult) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		per.setContrasena(encoder.encode(per.ge));
 		repoCandidato.save(per);
 		model.addAttribute("Mensaje", "Se ha registrado correctamente");
 		return "index";

@@ -19,7 +19,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages ="ejemplo.modelo.repositorios")
+@EnableJpaRepositories(basePackages ="ejemplo.modelo.repositorio")
 public class ConfiguracionBD {
 
 	@Bean
@@ -36,7 +36,7 @@ public class ConfiguracionBD {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPackagesToScan("ejemplo.modelo.entidades");
+		entityManagerFactoryBean.setPackagesToScan("ejemplo.modelo.entidad");
 		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
 		entityManagerFactoryBean.setJpaDialect(new HibernateJpaDialect());
 		

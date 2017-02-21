@@ -15,7 +15,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-public class Candidato {
+public class Candidato extends Usuario{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6339853390617801095L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -165,7 +170,94 @@ public class Candidato {
 	}
 
 
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
+		result = prime * result + ((curriculum == null) ? 0 : curriculum.hashCode());
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
+		result = prime * result + ((fecha_nac == null) ? 0 : fecha_nac.hashCode());
+		result = prime * result + fijo;
+		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
+		result = prime * result + ((idCan == null) ? 0 : idCan.hashCode());
+		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
+		result = prime * result + movil;
+		result = prime * result + movil2;
+		result = prime * result + ((nif == null) ? 0 : nif.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Candidato other = (Candidato) obj;
+		if (apellidos == null) {
+			if (other.apellidos != null)
+				return false;
+		} else if (!apellidos.equals(other.apellidos))
+			return false;
+		if (curriculum == null) {
+			if (other.curriculum != null)
+				return false;
+		} else if (!curriculum.equals(other.curriculum))
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
+		if (fecha_nac == null) {
+			if (other.fecha_nac != null)
+				return false;
+		} else if (!fecha_nac.equals(other.fecha_nac))
+			return false;
+		if (fijo != other.fijo)
+			return false;
+		if (genero == null) {
+			if (other.genero != null)
+				return false;
+		} else if (!genero.equals(other.genero))
+			return false;
+		if (idCan == null) {
+			if (other.idCan != null)
+				return false;
+		} else if (!idCan.equals(other.idCan))
+			return false;
+		if (imagen == null) {
+			if (other.imagen != null)
+				return false;
+		} else if (!imagen.equals(other.imagen))
+			return false;
+		if (movil != other.movil)
+			return false;
+		if (movil2 != other.movil2)
+			return false;
+		if (nif == null) {
+			if (other.nif != null)
+				return false;
+		} else if (!nif.equals(other.nif))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (provincia == null) {
+			if (other.provincia != null)
+				return false;
+		} else if (!provincia.equals(other.provincia))
+			return false;
+		return true;
+	}
+
 	
 	
 }

@@ -1,6 +1,7 @@
 package ejemplo.modelo.entidad;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,16 +25,28 @@ public class Oferta {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToMany
+    @ManyToOne
     private Empresa empresa;
     
     //@ManyToOne
     //private Test test;
     //Estos dos de arriba serian para: ID_EMPRESA y ID_TEST
    
+    @ManyToMany
+    private Set<Curriculum>curriculums;
     
     
-    @NotNull
+    public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+
+
+	@NotNull
     @NotEmpty
     private String titulo;
     
@@ -176,34 +189,120 @@ public class Oferta {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-        return result;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((categoria == null) ? 0 : categoria.hashCode());
+		result = prime * result + ((curriculums == null) ? 0 : curriculums.hashCode());
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
+		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
+		result = prime * result + ((fecha_creacion == null) ? 0 : fecha_creacion.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
+		result = prime * result + ((nivel == null) ? 0 : nivel.hashCode());
+		result = prime * result + ((num_vacantes == null) ? 0 : num_vacantes.hashCode());
+		result = prime * result + ((requisitos == null) ? 0 : requisitos.hashCode());
+		result = prime * result + ((salario_max == null) ? 0 : salario_max.hashCode());
+		result = prime * result + ((salario_min == null) ? 0 : salario_min.hashCode());
+		result = prime * result + ((sector == null) ? 0 : sector.hashCode());
+		result = prime * result + ((tipo_oferta == null) ? 0 : tipo_oferta.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Oferta other = (Oferta) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (titulo == null) {
-            if (other.titulo != null)
-                return false;
-        } else if (!titulo.equals(other.titulo))
-            return false;
-        return true;
-    }
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Oferta other = (Oferta) obj;
+		if (categoria == null) {
+			if (other.categoria != null)
+				return false;
+		} else if (!categoria.equals(other.categoria))
+			return false;
+		if (curriculums == null) {
+			if (other.curriculums != null)
+				return false;
+		} else if (!curriculums.equals(other.curriculums))
+			return false;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
+		if (empresa == null) {
+			if (other.empresa != null)
+				return false;
+		} else if (!empresa.equals(other.empresa))
+			return false;
+		if (fecha_creacion == null) {
+			if (other.fecha_creacion != null)
+				return false;
+		} else if (!fecha_creacion.equals(other.fecha_creacion))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (localidad == null) {
+			if (other.localidad != null)
+				return false;
+		} else if (!localidad.equals(other.localidad))
+			return false;
+		if (nivel == null) {
+			if (other.nivel != null)
+				return false;
+		} else if (!nivel.equals(other.nivel))
+			return false;
+		if (num_vacantes == null) {
+			if (other.num_vacantes != null)
+				return false;
+		} else if (!num_vacantes.equals(other.num_vacantes))
+			return false;
+		if (requisitos == null) {
+			if (other.requisitos != null)
+				return false;
+		} else if (!requisitos.equals(other.requisitos))
+			return false;
+		if (salario_max == null) {
+			if (other.salario_max != null)
+				return false;
+		} else if (!salario_max.equals(other.salario_max))
+			return false;
+		if (salario_min == null) {
+			if (other.salario_min != null)
+				return false;
+		} else if (!salario_min.equals(other.salario_min))
+			return false;
+		if (sector == null) {
+			if (other.sector != null)
+				return false;
+		} else if (!sector.equals(other.sector))
+			return false;
+		if (tipo_oferta == null) {
+			if (other.tipo_oferta != null)
+				return false;
+		} else if (!tipo_oferta.equals(other.tipo_oferta))
+			return false;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
+	}
+
+	public Set<Curriculum> getCurriculums() {
+		return curriculums;
+	}
+
+	public void setCurriculums(Set<Curriculum> curriculums) {
+		this.curriculums = curriculums;
+	}
 
 }

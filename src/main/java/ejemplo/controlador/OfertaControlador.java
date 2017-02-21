@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ejemplo.modelo.entidad.Candidato;
 import ejemplo.modelo.entidad.Oferta;
+import ejemplo.modelo.propertyEditor.OfertaPropertyEditor;
 import ejemplo.modelo.repositorio.RepositorioCandidato;
 import ejemplo.modelo.repositorio.RepositorioOferta;
 
@@ -30,6 +31,8 @@ public class OfertaControlador {
 	private RepositorioOferta repoOfer;
 	@Autowired
 	private RepositorioCandidato repoCandi;
+	@Autowired
+	private OfertaPropertyEditor oferprop;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String listaOferta(Model model)
@@ -70,10 +73,9 @@ public class OfertaControlador {
 		return "pages/empresaListado";
 
 	}
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
 		webDataBinder.registerCustomEditor(Oferta.class, oferprop);
 	}
-	
 }
