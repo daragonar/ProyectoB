@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 /target/
+=======
+target/* 
+/target/ 
+target/
+.metadata 
+tar.gz 
+.classpath 
+.project 
+*/.settings/
+>>>>>>> 4814fd8fdbed362915e20a2106a9c7b0e40eea3e
