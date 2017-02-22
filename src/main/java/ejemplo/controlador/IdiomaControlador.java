@@ -51,7 +51,7 @@ public class IdiomaControlador {
 	{
 		idiomaRepo.save(idioma);
 		model.addAttribute("experiencia",idiomaRepo.findAll());
-		return "**";
+		return "jai";
 	}
 	
 	@InitBinder
