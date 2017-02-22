@@ -1,5 +1,7 @@
 package ejemplo.modelo.entidad;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Idioma {
 	private String nombre;
 	
 	@OneToMany(fetch = FetchType.EAGER)
-	private Idioma_CV idiomacv;
+	private Set<Idioma_CV> idioma_cv;
 
 	public Long getId() {
 		return id;
@@ -40,12 +42,12 @@ public class Idioma {
 		this.nombre = nombre;
 	}
 
-	public Idioma_CV getIdiomacv() {
-		return idiomacv;
+	public Set<Idioma_CV> getIdioma_cv() {
+		return idioma_cv;
 	}
 
-	public void setIdiomacv(Idioma_CV idiomacv) {
-		this.idiomacv = idiomacv;
+	public void setIdioma_cv(Set<Idioma_CV> idioma_cv) {
+		this.idioma_cv = idioma_cv;
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public class Idioma {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((idiomacv == null) ? 0 : idiomacv.hashCode());
+		result = prime * result + ((idioma_cv == null) ? 0 : idioma_cv.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
@@ -72,10 +74,10 @@ public class Idioma {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (idiomacv == null) {
-			if (other.idiomacv != null)
+		if (idioma_cv == null) {
+			if (other.idioma_cv != null)
 				return false;
-		} else if (!idiomacv.equals(other.idiomacv))
+		} else if (!idioma_cv.equals(other.idioma_cv))
 			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
@@ -84,5 +86,7 @@ public class Idioma {
 			return false;
 		return true;
 	}
+
 	
-}
+	
+	}

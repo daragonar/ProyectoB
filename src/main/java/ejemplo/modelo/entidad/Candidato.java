@@ -3,18 +3,21 @@ package ejemplo.modelo.entidad;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
+@DiscriminatorValue("C")
 public class Candidato extends Usuario{
 
 	/**
@@ -22,9 +25,6 @@ public class Candidato extends Usuario{
 	 */
 	private static final long serialVersionUID = 6339853390617801095L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idCan;
 	
 	@NotNull
 	@NotEmpty
@@ -65,13 +65,7 @@ public class Candidato extends Usuario{
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Curriculum>curriculum;
 
-	public Long getIdCan() {
-		return idCan;
-	}
 
-	public void setIdCan(Long idCan) {
-		this.idCan = idCan;
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -175,17 +169,6 @@ public class Candidato extends Usuario{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
-		result = prime * result + ((curriculum == null) ? 0 : curriculum.hashCode());
-		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + ((fecha_nac == null) ? 0 : fecha_nac.hashCode());
-		result = prime * result + fijo;
-		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
-		result = prime * result + ((idCan == null) ? 0 : idCan.hashCode());
-		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
-		result = prime * result + movil;
-		result = prime * result + movil2;
-		result = prime * result + ((nif == null) ? 0 : nif.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
 		return result;
 	}
@@ -225,11 +208,6 @@ public class Candidato extends Usuario{
 			if (other.genero != null)
 				return false;
 		} else if (!genero.equals(other.genero))
-			return false;
-		if (idCan == null) {
-			if (other.idCan != null)
-				return false;
-		} else if (!idCan.equals(other.idCan))
 			return false;
 		if (imagen == null) {
 			if (other.imagen != null)

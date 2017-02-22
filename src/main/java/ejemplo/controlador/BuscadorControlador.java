@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ejemplo.modelo.entidad.Empresa;
+import ejemplo.modelo.entidad.Oferta;
 import ejemplo.modelo.repositorio.RepositorioEmpresa;
 import ejemplo.modelo.repositorio.RepositorioOferta;
 
@@ -31,9 +33,10 @@ public class BuscadorControlador {
 		model.addAttribute("titulo", "BUSQUEDA");
 		model.addAttribute("titulo1", "EMPRESA");
 		model.addAttribute("titulo2", "OFERTA");
-		
-		model.addAttribute("empresa", empreRepo.findByNombreIgnoreCaseContaining(buscar));
-		model.addAttribute("oferta", oferRepo.findByNombreIgnoreCaseContaining(buscar));
+		Iterable<Empresa> emp = empreRepo.findByNombreIgnoreCaseContaining(buscar);
+		Iterable<Oferta> ofer = oferRepo.findByTituloIgnoreCaseContaining(buscar);
+		model.addAttribute("empresa", emp);
+		model.addAttribute("oferta", ofer );
 			
 		return "busqueda";
 		

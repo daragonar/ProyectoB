@@ -3,6 +3,7 @@ package ejemplo.modelo.entidad;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,17 +11,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-
+@DiscriminatorValue("E")
 public class Empresa extends Usuario {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+
 
 	@NotNull
 	@NotEmpty
@@ -43,17 +43,8 @@ public class Empresa extends Usuario {
 	@Column(columnDefinition="LONGTEXT")
 	private String descripcion;
 	
-	//mappedBy="autor"
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
 	private Set<Oferta> oferta;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -115,13 +106,7 @@ public class Empresa extends Usuario {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
-		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((logotipo == null) ? 0 : logotipo.hashCode());
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
-		result = prime * result + ((numeroEmpleado == null) ? 0 : numeroEmpleado.hashCode());
-		result = prime * result + ((sector == null) ? 0 : sector.hashCode());
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());		result = prime * result + ((sector == null) ? 0 : sector.hashCode());
 		return result;
 	}
 
@@ -143,11 +128,6 @@ public class Empresa extends Usuario {
 			if (other.direccion != null)
 				return false;
 		} else if (!direccion.equals(other.direccion))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
 			return false;
 		if (logotipo == null) {
 			if (other.logotipo != null)

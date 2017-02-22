@@ -66,7 +66,7 @@ public class OfertaControlador {
 		return orf;
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	@RequestMapping(method=RequestMethod.GET, value="/inscribirse/{id}")
 	public String inscribirCandidato( Model model, @Valid @ModelAttribute Candidato candidato, BindingResult bindingResult) {
 		repoCandi.save(candidato);
 		model.addAttribute("candidato",repoCandi.findAll());

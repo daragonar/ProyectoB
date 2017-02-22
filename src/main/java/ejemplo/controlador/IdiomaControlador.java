@@ -1,4 +1,4 @@
-package ejemplo.controller;
+package ejemplo.controlador;
 
 import javax.validation.Valid;
 
@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import ejemplo.modelo.entidad.Idioma;
+import ejemplo.modelo.propertyEditor.IdiomaPropertyEditor;
+import ejemplo.modelo.repositorio.RepositorioIdioma;
 
 @Controller
 @RequestMapping("/idioma")

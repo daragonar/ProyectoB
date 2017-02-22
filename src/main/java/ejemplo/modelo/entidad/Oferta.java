@@ -33,7 +33,7 @@ public class Oferta {
     //Estos dos de arriba serian para: ID_EMPRESA y ID_TEST
    
     @ManyToMany
-    private Set<Curriculum>curriculums;
+    private Set<Curriculum> curriculums;
     
     
     public Empresa getEmpresa() {

@@ -39,7 +39,7 @@ public class EmpresaControlador {
 		return "pages/empresas";
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	@RequestMapping(method = RequestMethod.GET, value = "/detalle/{id}")
 	public String detalleEmpresa(Model model, @PathVariable long id) {
 		model.addAttribute("empresa", repoEmp.findOne(id));
 		return "pages/detalleEmpresa";
@@ -59,7 +59,7 @@ public class EmpresaControlador {
 		return "pages/empresaListado";
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/oferta", method = RequestMethod.POST)
 	public String guardarOferta(Model model, @Valid @ModelAttribute Oferta oferta, BindingResult bindingResult) {
 		repoOfer.save(oferta);
 		model.addAttribute("oferta", repoOfer.findAll());
@@ -76,7 +76,7 @@ public class EmpresaControlador {
 		}
 	}
 
-	@RequestMapping(value = " /{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = " /oferta/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> borraroferta(@PathVariable long id) {
 		try {
 			repoOfer.delete(id);

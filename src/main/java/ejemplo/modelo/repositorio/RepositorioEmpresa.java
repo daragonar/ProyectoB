@@ -9,4 +9,6 @@ import ejemplo.modelo.entidad.Empresa;
 @Repository
 public interface RepositorioEmpresa extends JpaRepository<Empresa, Long>{
 
+	Iterable<Empresa> findByNombreIgnoreCaseContaining(String buscar);
+
 }
