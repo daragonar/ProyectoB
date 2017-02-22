@@ -35,6 +35,13 @@ public class CandidatoControlador {
 		model.addAttribute("Mensaje", "Se ha registrado correctamente");
 		return "index";
 	}
+	
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String listarCandidato(Model model) {
+		model.addAttribute("candidato", repoCandidato.findAll());
+		return "";
+	}
 
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
