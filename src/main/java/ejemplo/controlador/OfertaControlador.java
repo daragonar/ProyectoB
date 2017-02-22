@@ -41,7 +41,7 @@ public class OfertaControlador {
 		return "pages/oferta";
 	}
 
-	@RequestMapping(method=RequestMethod.GET,value="/oferta/{id}")
+	@RequestMapping(method=RequestMethod.GET,value="/{id}")
 	private String detallesOfertaEmpresa (Model model, @PathVariable long id){
 		
 		model.addAttribute("oferta", repoOfer.findOne(id));
@@ -58,7 +58,7 @@ public class OfertaControlador {
 
 		}
 	}
-	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	@RequestMapping(method=RequestMethod.GET, value="/o{id}")
 	@ResponseBody
 	public Oferta buscarOferta(@PathVariable Long id)
 	{
@@ -66,7 +66,7 @@ public class OfertaControlador {
 		return orf;
 	}
 	
-	@RequestMapping(method=RequestMethod.GET, value="/inscribirse/{id}")
+	@RequestMapping(method=RequestMethod.POST, value="/inscribirse/{id}")
 	public String inscribirCandidato( Model model, @Valid @ModelAttribute Candidato candidato, BindingResult bindingResult) {
 		repoCandi.save(candidato);
 		model.addAttribute("candidato",repoCandi.findAll());
