@@ -60,7 +60,16 @@ public class Rol {
 			return false;
 		return true;
 	}
-	
-	
 
+	public Rol(Long id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
+
+	public Rol() {
+		super();
+	}
+	
+	
 }
